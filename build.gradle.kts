@@ -14,18 +14,15 @@ tasks.withType<JavaCompile> {
 application {
     mainClass.set("com.splunk.example.LogsExampleMain")
     applicationDefaultJvmArgs = listOf(
-//        "-javaagent:splunk-otel-javaagent-1.18.0.jar",
-        "-javaagent:splunk-otel-javaagent-1.14.2.jar",
+        "-javaagent:splunk-otel-javaagent-1.23.1.jar",
         "-Dotel.javaagent.debug=true",
-        "-Dotel.resource.attributes=deployment.environment=http-testenv",
-        "-Dotel.service.name=HttpHeaderAttributes",
-        "-Dotel.instrumentation.http.capture-headers.client.request=demeanor",
-        "-Dotel.instrumentation.http.capture-headers.client.response=originator",
-        "-Dotel.instrumentation.http.capture-headers.server.request=demeanor,user-agent",
-        "-Dotel.instrumentation.http.capture-headers.server.response=originator",
+        "-Dotel.resource.attributes=deployment.environment=logs-example",
+        "-Dotel.service.name=LogsExample",
+        "-Dotel.logs.exporter="
     )
 }
 
 dependencies {
     implementation("com.sparkjava:spark-core:2.9.4")
+    implementation("org.apache.logging.log4j:log4j-core:2.20.0")
 }

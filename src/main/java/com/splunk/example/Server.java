@@ -1,5 +1,7 @@
 package com.splunk.example;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import spark.QueryParamsMap;
 
 import java.util.concurrent.TimeUnit;
@@ -10,11 +12,18 @@ import static spark.Spark.port;
 import static spark.Spark.post;
 
 public class Server {
+
+    public static final int PORT = 8182;
+    Logger logger = LogManager.getLogger(Server.class);
+
     public void runForever() {
-        port(8182);
+        logger.info("Server is starting on port " + PORT);
+        port(PORT);
         get("/greeting", (req, res) -> {
             var name = req.queryParams("name");
+            logger.info("Got request from " + name);
             var num = Integer.parseInt(req.queryParams("num"));
+            logger.info(name + " has requested " + num + " random emoji");
 
             StringBuilder emojis = new StringBuilder();
             for(int i = 0; i < num; i++){
@@ -27,7 +36,9 @@ public class Server {
 
             res.type("text/plain");
             res.header("originator", name);
-            return "Hello " + name + "\n" + emojis + "\n";
+            String response = "Hello " + name + "\n" + emojis + "\n";
+            logger.info("Sending response to " + name + ": " + response);
+            return response;
         });
     }
 }
