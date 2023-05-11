@@ -115,7 +115,7 @@ The 3rd field is the colon `:` delimited MDC (mapped diagnostic context), which
 contains the trace id, span id, and flags as configured in the `PatternLayout` in 
 log4j2.xml The presence of this data confirms that MDC is wired up and working.
 
-If we open Log Observer and filtering on `service.name = LogsExample` we see that logs have indeed come into Splunk o11y cloud:
+If we open Log Observer and filter on `service.name = LogsExample` we see that logs have indeed come into Splunk o11y cloud:
 
 <img width="1005" alt="image" src="https://github.com/breedx-splk/java-logs-example/assets/75337021/13ad990f-74e2-4a04-9988-8f731755d7fb">
 
