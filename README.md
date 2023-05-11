@@ -124,13 +124,20 @@ individual fields.
 <img width="540" alt="image" src="https://github.com/breedx-splk/java-logs-example/assets/75337021/78065234-947a-4112-8eea-23f3d2f0bea2">
 
 At the top of the detail list is a clickable trace id:
+
 <img width="444" alt="image" src="https://github.com/breedx-splk/java-logs-example/assets/75337021/b343cc43-70de-4fbc-8d5c-8065d36c8dea">
 
 and if you choose "View trace_id" you will navigate to the detailed trace view, showing our 
-simple single-span trace resultws:
+simple single-span trace results:
 
 <img width="638" alt="image" src="https://github.com/breedx-splk/java-logs-example/assets/75337021/323da693-91f5-4c33-a8fa-c7f0e48f7595">
 
+# Summary
+
+As of this writing, logs are still somewhat new in OpenTelemetry and have not reached maturity. 
+However, we have demonstrated that there is already useful support for the logs signal.
+You can leverage the instrumentation agent and otel SDK to both generate MDC for local logs, AND
+you can send logs with trace context into an otel collector and forwarded to Splunk o11y.
 
 # References:
 
