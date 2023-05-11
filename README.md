@@ -115,15 +115,21 @@ The 3rd field is the colon `:` delimited MDC (mapped diagnostic context), which
 contains the trace id, span id, and flags as configured in the `PatternLayout` in 
 log4j2.xml The presence of this data confirms that MDC is wired up and working.
 
-If we open the trace list view for our app, we see the web GET requests:
-<img width="999" alt="image" src="https://github.com/breedx-splk/java-logs-example/assets/75337021/6955310f-ad71-4aed-94d8-2ccd1461265a">
-
-And drilling into the trace we get a very simple single-span with unexpected results:
-<img width="638" alt="image" src="https://github.com/breedx-splk/java-logs-example/assets/75337021/323da693-91f5-4c33-a8fa-c7f0e48f7595">
-
-Switching over to the Log Observer and filtering on the `service.name = LogsExample` we see that logs have come into Splunk o11y cloud:
+IF we open Log Observer and filtering on the `service.name = LogsExample` we see that logs have indeed come into Splunk o11y cloud:
 
 <img width="1005" alt="image" src="https://github.com/breedx-splk/java-logs-example/assets/75337021/13ad990f-74e2-4a04-9988-8f731755d7fb">
+
+And if we click on one of the log lines we can see our log message along with the 
+individual fields.
+<img width="540" alt="image" src="https://github.com/breedx-splk/java-logs-example/assets/75337021/78065234-947a-4112-8eea-23f3d2f0bea2">
+
+At the top of the detail list is a clickable trace id:
+<img width="444" alt="image" src="https://github.com/breedx-splk/java-logs-example/assets/75337021/b343cc43-70de-4fbc-8d5c-8065d36c8dea">
+
+and if you choose "View trace_id" you will navigate to the detailed trace view, showing our 
+simple single-span trace resultws:
+
+<img width="638" alt="image" src="https://github.com/breedx-splk/java-logs-example/assets/75337021/323da693-91f5-4c33-a8fa-c7f0e48f7595">
 
 
 # References:
