@@ -18,9 +18,7 @@ application {
         "-Dotel.javaagent.debug=true",
         "-Dotel.resource.attributes=deployment.environment=logs-example",
         "-Dotel.service.name=LogsExample",
-        "-Dotel.logs.exporter=otlp",
-        "-Dotel.instrumentation.log4j-appender.enabled=true",
-        "-Dotel.instrumentation.log4j-mdc.enabled=true"
+        "-Dotel.logs.exporter=otlp"
     )
 }
 
