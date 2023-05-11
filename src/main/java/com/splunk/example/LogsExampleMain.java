@@ -5,6 +5,7 @@ import io.opentelemetry.api.logs.GlobalLoggerProvider;
 import io.opentelemetry.exporter.otlp.logs.OtlpGrpcLogRecordExporter;
 import io.opentelemetry.sdk.logs.LogRecordProcessor;
 import io.opentelemetry.sdk.logs.SdkLoggerProvider;
+import io.opentelemetry.sdk.logs.export.BatchLogRecordProcessor;
 import io.opentelemetry.sdk.logs.export.LogRecordExporter;
 import io.opentelemetry.sdk.logs.export.SimpleLogRecordProcessor;
 import io.opentelemetry.sdk.resources.Resource;
@@ -18,7 +19,8 @@ public class LogsExampleMain {
         LogRecordExporter exporter = OtlpGrpcLogRecordExporter.builder()
                 .setEndpoint("http://localhost:4317")
                 .build();
-        LogRecordProcessor processor = SimpleLogRecordProcessor.create(exporter);
+        LogRecordProcessor processor = BatchLogRecordProcessor.builder(exporter)
+                .build();
         Resource resource = Resource.create(Attributes.of(stringKey("test"), "test-val"));
         SdkLoggerProvider sdkLoggerProvider = SdkLoggerProvider.builder()
                 .setResource(resource)
