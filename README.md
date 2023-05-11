@@ -115,8 +115,11 @@ The 3rd field is the colon `:` delimited MDC (mapped diagnostic context), which
 contains the trace id, span id, and flags as configured in the `PatternLayout` in 
 log4j2.xml The presence of this data confirms that MDC is wired up and working.
 
+If we open the trace list view for our app, we see the web GET requests:
 <img width="999" alt="image" src="https://github.com/breedx-splk/java-logs-example/assets/75337021/6955310f-ad71-4aed-94d8-2ccd1461265a">
 
+And drilling into the trace we get a very simple single-span with unexpected results:
+<img width="638" alt="image" src="https://github.com/breedx-splk/java-logs-example/assets/75337021/323da693-91f5-4c33-a8fa-c7f0e48f7595">
 
 # References:
 
