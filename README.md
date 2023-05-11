@@ -121,6 +121,11 @@ If we open the trace list view for our app, we see the web GET requests:
 And drilling into the trace we get a very simple single-span with unexpected results:
 <img width="638" alt="image" src="https://github.com/breedx-splk/java-logs-example/assets/75337021/323da693-91f5-4c33-a8fa-c7f0e48f7595">
 
+Switching over to the Log Observer and filtering on the `service.name = LogsExample` we see that logs have come into Splunk o11y cloud:
+
+<img width="1005" alt="image" src="https://github.com/breedx-splk/java-logs-example/assets/75337021/13ad990f-74e2-4a04-9988-8f731755d7fb">
+
+
 # References:
 
 * [log4j-appender-2.17 docs](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/main/instrumentation/log4j/log4j-appender-2.17/library/README.md)
