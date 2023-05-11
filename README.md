@@ -115,6 +115,7 @@ The 3rd field is the colon `:` delimited MDC (mapped diagnostic context), which
 contains the trace id, span id, and flags as configured in the `PatternLayout` in 
 log4j2.xml The presence of this data confirms that MDC is wired up and working.
 
+<img width="999" alt="image" src="https://github.com/breedx-splk/java-logs-example/assets/75337021/6955310f-ad71-4aed-94d8-2ccd1461265a">
 
 
 # References:
