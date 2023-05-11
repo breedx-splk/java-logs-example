@@ -18,11 +18,22 @@ application {
         "-Dotel.javaagent.debug=true",
         "-Dotel.resource.attributes=deployment.environment=logs-example",
         "-Dotel.service.name=LogsExample",
-        "-Dotel.logs.exporter="
+        "-Dotel.logs.exporter=otlp",
+        "-Dotel.instrumentation.log4j-appender.enabled=true",
+        "-Dotel.instrumentation.log4j-mdc.enabled=true"
     )
 }
 
 dependencies {
     implementation("com.sparkjava:spark-core:2.9.4")
     implementation("org.apache.logging.log4j:log4j-core:2.20.0")
+
+    annotationProcessor("com.google.auto.service:auto-service:1.0.1")
+    compileOnly("com.google.auto.service:auto-service:1.0.1")
+
+    compileOnly("io.opentelemetry:opentelemetry-api-logs:1.25.0-alpha")
+    implementation("io.opentelemetry:opentelemetry-sdk-logs:1.25.0-alpha")
+    implementation("io.opentelemetry:opentelemetry-sdk-extension-autoconfigure:1.25.0-alpha")
+    implementation("io.opentelemetry:opentelemetry-exporter-otlp-logs:1.25.0-alpha")
+    runtimeOnly("io.opentelemetry.instrumentation:opentelemetry-log4j-appender-2.17:1.25.1-alpha")
 }
