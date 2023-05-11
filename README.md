@@ -8,10 +8,32 @@ to ingest logs into the Splunk Observability Cloud.
 
 tbd - work in progress
 
-## API
+## Collector config
+
+This is a snippet:
+```
+receivers:
+  otlp:
+    protocols:
+      grpc:
+exporters:
+  logging/debug:
+    loglevel: debug
+  splunk_hec:
+    token: "${SFX_TOKEN}"
+    endpoint: "https://ingest.lab0.signalfx.com/v1/log"
+service:
+  pipelines:
+    logs:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [logging/debug, splunk_hec]
+```
+
+## Web API
 
 ```
-curl 'http://localhost:8182/greeting?name=jason&num=5'
+curl 'http://localhost:8182/greeting?name=meep&num=5'
 ```
 
 Where `name` is the name to echo and `num` is the number of emoji to return.
