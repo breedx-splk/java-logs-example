@@ -112,7 +112,8 @@ Firstly, the console appender will show some lines that look like this:
 ```
 
 The 3rd field is the colon `:` delimited MDC (mapped diagnostic context), which 
-contains the trace id, span id, and flags.
+contains the trace id, span id, and flags as configured in the `PatternLayout` in 
+log4j2.xml The presence of this data confirms that MDC is wired up and working.
 
 
 
