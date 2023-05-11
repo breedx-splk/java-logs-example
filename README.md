@@ -58,6 +58,8 @@ The app can be run with the gradle wrapper provided:
 ./gradlew run
 ```
 
+Run that in a separate terminal and leave it open.
+
 The agent configuration is performed with java system properties passed on the 
 commandline. See the [`build.gradle.kts`](build.gradle.kts) file for
 the full details, but let's go over the important parts:
