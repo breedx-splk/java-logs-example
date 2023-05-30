@@ -14,7 +14,7 @@ tasks.withType<JavaCompile> {
 application {
     mainClass.set("com.splunk.example.LogsExampleMain")
     applicationDefaultJvmArgs = listOf(
-        "-javaagent:splunk-otel-javaagent-1.24.0.jar",
+        "-javaagent:splunk-otel-javaagent-1.25.0-SNAPSHOT.jar",
         "-Dotel.javaagent.debug=true",
         "-Dotel.resource.attributes=deployment.environment=logs-example",
         "-Dotel.service.name=LogsExample",
