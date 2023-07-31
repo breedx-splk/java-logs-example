@@ -64,19 +64,11 @@ The agent configuration is performed with java system properties passed on the
 commandline. See the [`build.gradle.kts`](build.gradle.kts) file for
 the full details, but let's go over the important parts:
 
-* `-javaagent:splunk-otel-javaagent-1.24.0.jar` - This wires up the java instrumentation agent to the application
+* `-javaagent:splunk-otel-javaagent-1.26.0.jar` - This wires up the java instrumentation agent to the application
 * `-Dotel.logs.exporter=otlp` - This enables otel log exporting. 
 * `-Dotel.resource.attributes=deployment.environment=logs-example` - This configures the environment name for our otel resource
 * `-Dotel.service.name=LogsExample` - This configures the service name for our otel resource
 * `-Dotel.javaagent.debug=true` - Optional. This only allows us to see more details in the java agent output. 
-
-Another relevant piece of configuration is in the `LogsExampleMain.configureLogging()` method.
-This method does several things:
-
-1. Creates an instance of `OtlpGrpcLogRecordExporter` configured to send to localhost on port 4317 (OTLP default)
-2. It creates a `BatchLogRecordProcessor` so that logs can be efficiently sent together in groups
-3. It creates a resource based on the platform default and adds a custom `service.name`
-4. It creates the instance of the `SdkLoggerProvider` implementation and registers it as the `GlobalLoggerProvider`.
 
 ### log4j2.xml
 
